@@ -6,7 +6,7 @@ public class MyArray {
 
   public MyArray(int capacity) {
     this.array = new int[capacity];
-    this.size = 0;
+    this.size = capacity;
   }
 
   // get
@@ -21,10 +21,11 @@ public class MyArray {
   public void set(int index, int value) {
     if (index > size) {
       throw new IndexOutOfBoundsException("you're outta bounds!");
-     }
-    
-     this.array[index] = value;
+    }
+
+    this.array[index] = value;
   }
+  // add at first available
 
   // insert
 }
