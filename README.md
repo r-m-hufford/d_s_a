@@ -2,7 +2,7 @@
 
 The purpose of this project is twofold...
 
-1. Freshen up on core Java. I worked hard to be learn Java and I do not want to let it slip completely.
+1. Freshen up on core Java. I worked hard to learn Java and I do not want to let it slip completely.
 
 2. A little ds&a refresh never hurt anyone.
 
