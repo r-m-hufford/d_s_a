@@ -25,7 +25,16 @@ public class MyArray {
 
     this.array[index] = value;
   }
-  // add at first available
 
   // insert
+  public void insert(int index, int value) {
+    if (index > size) {
+      // create a new array double in size
+      // add the old stuff
+      // add the new stuff
+      // assign to this.array
+    }
+
+    this.set(index, value);
+  }
 }

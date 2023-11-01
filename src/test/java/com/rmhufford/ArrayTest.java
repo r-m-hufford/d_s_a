@@ -13,7 +13,6 @@ public class ArrayTest {
   @Before
   public void setup() {
     array = new MyArray(5);
-
   }
 
   @Test
