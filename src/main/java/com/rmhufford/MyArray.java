@@ -9,9 +9,22 @@ public class MyArray {
     this.size = 0;
   }
 
-  //get
+  // get
+  public int get(int index) {
+    if (index > size) {
+      throw new IndexOutOfBoundsException("you're outta bounds!");
+    }
+    return this.array[index];
+  }
 
-  //set
+  // set
+  public void set(int index, int value) {
+    if (index > size) {
+      throw new IndexOutOfBoundsException("you're outta bounds!");
+     }
+    
+     this.array[index] = value;
+  }
 
-  //insert
+  // insert
 }
