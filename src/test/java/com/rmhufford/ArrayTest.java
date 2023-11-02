@@ -21,4 +21,11 @@ public class ArrayTest {
 
     Assert.assertEquals(5, array.get(1));
   }
+
+  @Test
+  public void testInsert() {
+    array.insert(8, 4);
+
+    Assert.assertEquals(4, array.get(8));
+  }
 }
