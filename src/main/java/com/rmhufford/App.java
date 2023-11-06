@@ -1,15 +1,14 @@
 package com.rmhufford;
 
-import com.rmhufford.LinkedList;
+import com.rmhufford.MyArray;
 
 public class App {
   public static void main(String[] args) {
-    LinkedList list = new LinkedList();
+    MyArray arr = new MyArray(7);
+    arr.setElement(1, 1);
+    arr.setElement(3, 3);
+    arr.setElement(5, 5);
 
-    list.insertAt(0, 1);
-    list.insertAt(0, 2);
-    list.insertAt(1, 3);
-
-    System.out.println(list.toString());
+    System.out.println(arr.print("notnull"));
   }
 }

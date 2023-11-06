@@ -270,14 +270,6 @@ public class LinkedList {
     return slow;
   }
 
-  public void print() {
-    Node node = this.head;
-    while (node != null) {
-      System.out.println(node.data);
-      node = node.next;
-    }
-  }
-
   public String toString() {
     StringBuilder list = new StringBuilder();
     Node node = this.head;
@@ -291,5 +283,4 @@ public class LinkedList {
     }
     return list.toString();
   }
-
 }

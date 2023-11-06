@@ -3,23 +3,31 @@ package com.rmhufford;
 public class MyArray {
   private Integer[] array;
   private int size;
-  private int count;
+  private int elementCount;
 
   public MyArray(int capacity) {
     this.array = new Integer[capacity];
     this.size = capacity;
   }
 
-  public int get(int index) {
+  public int getElement(int index) {
     checkBoundary(index);
     return this.array[index];
   }
 
-  public void set(int index, int value) {
+  public void setElement(int index, int value) {
     checkBoundary(index);
 
     this.array[index] = value;
-    this.count++;
+    this.elementCount++;
+  }
+
+  public Integer[] getArray() {
+    return this.array;
+  }
+
+  public void setArray(Integer[] arr) {
+    this.array = arr;
   }
 
   public void insert(int index, int value) {
@@ -34,25 +42,25 @@ public class MyArray {
         }
       }
       this.size *= 2;
-      this.array = newArr;
+      setArray(newArr);
     }
 
-    this.set(index, value);
-    this.count++;
+    this.setElement(index, value);
+    this.elementCount++;
   }
 
   public void delete(int index) {
     checkBoundary(index);
     this.array[index] = null;
-    this.count--;
+    this.elementCount--;
   }
 
   public int size() {
-    return this.count;
+    return this.elementCount;
   }
 
   public boolean isEmpty() {
-    return this.count > 0;
+    return this.elementCount > 0;
   }
 
   public void resize() {
@@ -60,8 +68,25 @@ public class MyArray {
     for (int i = 0; i < this.size; i++) {
       newArr[i] = this.array[i];
     }
-    // return or reassign
-    //
+    setArray(newArr);
+  }
+
+  // modes: all and exist
+  public String print(String mode) {
+    // print all and print actual
+    StringBuilder list = new StringBuilder();
+    for (int i = 0; i < array.length; i++) {
+      if (mode == "notnull" && this.array[i] == null) {
+        continue;
+      } else {
+        list.append(this.array[i]).append(", ");
+      }
+    }
+
+    if (list.length() > 0) {
+      list.setLength(list.length() - 2);
+    }
+    return list.toString();
   }
 
   // HELPERS
