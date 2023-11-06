@@ -9,6 +9,6 @@ public class App {
     arr.setElement(3, 3);
     arr.setElement(5, 5);
 
-    System.out.println(arr.print("notnull"));
+    System.out.println(arr.print("all"));
   }
 }

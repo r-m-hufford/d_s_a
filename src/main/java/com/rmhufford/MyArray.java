@@ -71,9 +71,8 @@ public class MyArray {
     setArray(newArr);
   }
 
-  // modes: all and exist
+  // modes: all and notnull
   public String print(String mode) {
-    // print all and print actual
     StringBuilder list = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
       if (mode == "notnull" && this.array[i] == null) {
