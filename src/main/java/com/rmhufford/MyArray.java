@@ -3,7 +3,6 @@ package com.rmhufford;
 public class MyArray {
   private Integer[] array;
   private int size;
-  private int elementCount;
 
   public MyArray(int capacity) {
     this.array = new Integer[capacity];
@@ -19,15 +18,11 @@ public class MyArray {
     checkBoundary(index);
 
     this.array[index] = value;
-    this.elementCount++;
+    this.size++;
   }
 
   public Integer[] getArray() {
     return this.array;
-  }
-
-  public void setArray(Integer[] arr) {
-    this.array = arr;
   }
 
   public void insert(int index, int value) {
@@ -41,7 +36,7 @@ public class MyArray {
           newArr[i] = value;
         }
       }
-      setArray(newArr);
+      this.array = newArr;
     }
 
     this.setElement(index, value);
@@ -51,15 +46,16 @@ public class MyArray {
   public void delete(int index) {
     checkBoundary(index);
     this.array[index] = null;
-    this.elementCount--;
+    this.size--;
   }
 
   public int size() {
-    return this.elementCount;
+    // i.e. number of non null elements
+    return this.size;
   }
 
   public boolean isEmpty() {
-    return this.elementCount > 0;
+    return this.size > 0;
   }
 
   public void resize() {
@@ -67,7 +63,7 @@ public class MyArray {
     for (int i = 0; i < this.size; i++) {
       newArr[i] = this.array[i];
     }
-    setArray(newArr);
+    this.array = newArr;
   }
 
   // modes: all and notnull
@@ -88,8 +84,12 @@ public class MyArray {
   }
 
   public void append(int value) {
-    System.out.println("length " + array.length);
-    System.out.println("size " + this.size);
+    if (size == this.array.length) {
+      resize();
+    }
+
+    this.array[size] = value;
+    size++;
   }
 
   // HELPERS

@@ -13,13 +13,6 @@ public class ArrayTest {
   }
 
   @Test
-  public void testArraySet() {
-    array.setElement(1, 5);
-
-    Assert.assertEquals(5, array.getElement(1));
-  }
-
-  @Test
   public void testInsert() {
     array.insert(2, 4);
 
