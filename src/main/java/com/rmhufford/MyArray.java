@@ -101,8 +101,6 @@ public class MyArray {
     for (int i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
         return true;
-      } else {
-        continue;
       }
     }
     return false;
@@ -110,13 +108,24 @@ public class MyArray {
 
   public int indexOf(int value) {
     for (int i = 0; i < this.array.length; i++) {
+      System.out.println(i);
       if (this.array[i] == value) {
         return i;
+      }
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(int value) {
+    int currentIndex = -1;
+    for (int i = 0; i < this.array.length; i++) {
+      if (this.array[i] == value) {
+        currentIndex = i;
       } else {
         continue;
       }
     }
-    return -1;
+    return currentIndex;
   }
 
   // HELPERS

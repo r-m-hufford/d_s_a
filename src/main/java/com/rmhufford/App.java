@@ -7,7 +7,7 @@ public class App {
     MyArray arr = new MyArray(7);
     System.out.println(arr.print("all"));
 
-    arr.append(0);
+    arr.setElement(2, 2);
     System.out.println(arr.print("all"));
   }
 }
