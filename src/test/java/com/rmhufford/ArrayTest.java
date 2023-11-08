@@ -28,29 +28,38 @@ public class ArrayTest {
     Assert.assertEquals(contains, true);
   }
 
-  // @Test
-  // public void testDoesNotContain() {
-  // MyArray arr = new MyArray(5);
-  // arr.append(2);
-  // boolean contains = arr.contains(0);
+  @Test
+  public void testDoesNotContain() {
+    MyArray arr = new MyArray(5);
+    arr.append(2);
+    boolean contains = arr.contains(0);
 
-  // Assert.assertEquals(contains, false);
-  // }
+    Assert.assertEquals(contains, false);
+  }
 
   @Test
   public void testIndexOf() {
-    MyArray arr = new MyArray(5);
+    MyArray arr = new MyArray(7);
     arr.append(2);
-    int indexOf = array.indexOf(2);
-
-    Assert.assertEquals(indexOf, 0);
+    int indexOf = arr.indexOf(2);
+    Assert.assertEquals(0, indexOf);
   }
 
-  // @Test
-  // public void testNoIndexOf() {
-  // int indexOf = array.indexOf(0);
+  @Test
+  public void testNoIndexOf() {
+    int indexOf = array.indexOf(0);
 
-  // Assert.assertEquals(indexOf, -1);
-  // }
+    Assert.assertEquals(indexOf, -1);
+  }
 
+  @Test
+  public void testLastIndexOf() {
+    MyArray arr = new MyArray(7);
+    arr.append(2);
+    arr.append(3);
+    arr.append(3);
+    arr.append(2);
+    int indexOf = arr.lastIndexOf(2);
+    Assert.assertEquals(3, indexOf);
+  }
 }

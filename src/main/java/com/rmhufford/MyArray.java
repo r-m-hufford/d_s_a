@@ -83,7 +83,7 @@ public class MyArray {
     return list.toString();
   }
 
-  public void append(int value) {
+  public void append(Integer value) {
     if (size == this.array.length) {
       resize();
     }
@@ -97,8 +97,8 @@ public class MyArray {
     }
   }
 
-  public boolean contains(int value) {
-    for (int i = 0; i < this.array.length; i++) {
+  public boolean contains(Integer value) {
+    for (Integer i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
         return true;
       }
@@ -106,9 +106,8 @@ public class MyArray {
     return false;
   }
 
-  public int indexOf(int value) {
-    for (int i = 0; i < this.array.length; i++) {
-      System.out.println(i);
+  public int indexOf(Integer value) {
+    for (Integer i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
         return i;
       }
@@ -116,9 +115,9 @@ public class MyArray {
     return -1;
   }
 
-  public int lastIndexOf(int value) {
+  public int lastIndexOf(Integer value) {
     int currentIndex = -1;
-    for (int i = 0; i < this.array.length; i++) {
+    for (Integer i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
         currentIndex = i;
       } else {
