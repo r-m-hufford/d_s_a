@@ -135,6 +135,13 @@ public class MyArray {
     }
   }
 
+  public Integer[] addAll(Integer[] arr) {
+    for (Integer i = 0; i < arr.length; i++) {
+      this.append(arr[i]);
+    }
+    return this.array;
+  }
+
   // HELPERS
   public void checkBoundary(int index) {
     if (index >= this.array.length) {

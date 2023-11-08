@@ -4,10 +4,9 @@ import com.rmhufford.MyArray;
 
 public class App {
   public static void main(String[] args) {
-    MyArray arr = new MyArray(7);
-    arr.append(2);
-    int indexOf = arr.indexOf(2);
-    System.out.println(indexOf);
+    MyArray arr = new MyArray(4);
+    // Integer[] addPls = new Integer[] { 1, 2, 3, 4, 5, 6 };
+    // arr.addAll(addPls);
     System.out.println(arr.print("all"));
   }
 }

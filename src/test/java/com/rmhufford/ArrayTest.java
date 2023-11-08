@@ -74,4 +74,13 @@ public class ArrayTest {
     boolean contains = arr.contains(2);
     Assert.assertEquals(false, contains);
   }
+
+  @Test
+  public void testAddAll() {
+    MyArray arr = new MyArray(4);
+    Integer[] addPls = new Integer[] { 1, 2, 3, 4, 5, 6 };
+    arr.addAll(addPls);
+    boolean contains = arr.contains(6);
+    Assert.assertEquals(true, contains);
+  }
 }
