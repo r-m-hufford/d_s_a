@@ -142,6 +142,24 @@ public class MyArray {
     return this.array;
   }
 
+  public Integer[] subArray(int from, int to) {
+    Integer[] subArr = new Integer[to - from];
+    int subArrIndex = 0;
+    for (Integer i = 0; i < this.array.length; i++) {
+      if (i > from && i <= to) {
+        subArr[subArrIndex] = this.array[i];
+        subArrIndex++;
+      }
+    }
+    return subArr;
+  }
+
+  // reverse
+
+  // toArray
+
+  // trimToSize
+
   // HELPERS
   public void checkBoundary(int index) {
     if (index >= this.array.length) {
