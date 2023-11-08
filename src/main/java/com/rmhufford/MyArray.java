@@ -87,9 +87,25 @@ public class MyArray {
     if (size == this.array.length) {
       resize();
     }
-
     this.array[size] = value;
     size++;
+  }
+
+  public void clear() {
+    for (int i = 0; i < this.array.length; i++) {
+      this.array[i] = null;
+    }
+  }
+
+  public boolean contains(int value) {
+    for (int i = 0; i < this.array.length; i++) {
+      if (this.array[i] == value) {
+        return true;
+      } else {
+        continue;
+      }
+    }
+    return false;
   }
 
   // HELPERS
