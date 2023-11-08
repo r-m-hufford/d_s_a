@@ -127,6 +127,14 @@ public class MyArray {
     return currentIndex;
   }
 
+  public void remove(Integer value) {
+    for (Integer i = 0; i < this.array.length; i++) {
+      if (this.array[i] == value) {
+        this.array[i] = null;
+      }
+    }
+  }
+
   // HELPERS
   public void checkBoundary(int index) {
     if (index >= this.array.length) {

@@ -62,4 +62,16 @@ public class ArrayTest {
     int indexOf = arr.lastIndexOf(2);
     Assert.assertEquals(3, indexOf);
   }
+
+  @Test
+  public void testRemove() {
+    MyArray arr = new MyArray(7);
+    arr.append(2);
+    arr.append(3);
+    arr.append(3);
+    arr.append(2);
+    arr.remove(2);
+    boolean contains = arr.contains(2);
+    Assert.assertEquals(false, contains);
+  }
 }
