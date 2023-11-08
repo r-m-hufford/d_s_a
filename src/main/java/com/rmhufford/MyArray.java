@@ -142,6 +142,7 @@ public class MyArray {
     return this.array;
   }
 
+  // from: exclusive. to: inclusive
   public Integer[] subArray(int from, int to) {
     Integer[] subArr = new Integer[to - from];
     int subArrIndex = 0;
@@ -155,6 +156,18 @@ public class MyArray {
   }
 
   // reverse
+  public void reverse() {
+    // start at the beginning
+    // i = 0 j = end
+    // got to the middle and flip each index along the way
+    // trim away the excess length?
+    for (int i = 0, j = this.array.length - 1; i < this.array.length / 2; i++, j--) {
+      int temp = this.array[i];
+      this.array[i] = this.array[j];
+      this.array[j] = temp;
+      System.out.println("i: " + i + "  |  j: " + j);
+    }
+  }
 
   // toArray
 

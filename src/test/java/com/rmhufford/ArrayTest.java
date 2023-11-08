@@ -83,4 +83,15 @@ public class ArrayTest {
     boolean contains = arr.contains(6);
     Assert.assertEquals(true, contains);
   }
+
+  @Test
+  public void testReverse() {
+    MyArray arr = new MyArray(6);
+    Integer[] addPls = new Integer[] { 1, 2, 3, 4, 5, 6 };
+    arr.addAll(addPls);
+
+    arr.reverse();
+    int indexOf = arr.indexOf(6);
+    Assert.assertEquals(0, indexOf);
+  }
 }
