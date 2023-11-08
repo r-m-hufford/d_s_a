@@ -7,7 +7,7 @@ public class MyArray {
 
   public MyArray(int capacity) {
     this.array = new Integer[capacity];
-    this.size = capacity;
+    this.size = 0;
   }
 
   public int getElement(int index) {
@@ -31,22 +31,21 @@ public class MyArray {
   }
 
   public void insert(int index, int value) {
-    if (index > size) {
-      Integer[] newArr = new Integer[this.size * 2];
-      for (int i = 0; i < this.size; i++) {
+    if (index > this.array.length) {
+      Integer[] newArr = new Integer[this.array.length * 2];
+      for (int i = 0; i < this.array.length; i++) {
         newArr[i] = this.array[i];
       }
-      for (int i = this.size; i < this.size * 2; i++) {
+      for (int i = this.array.length; i < this.array.length * 2; i++) {
         if (i == index) {
           newArr[i] = value;
         }
       }
-      this.size *= 2;
       setArray(newArr);
     }
 
     this.setElement(index, value);
-    this.elementCount++;
+    this.size++;
   }
 
   public void delete(int index) {
@@ -88,9 +87,14 @@ public class MyArray {
     return list.toString();
   }
 
+  public void append(int value) {
+    System.out.println("length " + array.length);
+    System.out.println("size " + this.size);
+  }
+
   // HELPERS
   public void checkBoundary(int index) {
-    if (index >= size) {
+    if (index >= this.array.length) {
       throw new IndexOutOfBoundsException("you're outta bounds!");
     }
   }

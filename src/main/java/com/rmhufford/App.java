@@ -10,5 +10,7 @@ public class App {
     arr.setElement(5, 5);
 
     System.out.println(arr.print("all"));
+
+    arr.append(0);
   }
 }
