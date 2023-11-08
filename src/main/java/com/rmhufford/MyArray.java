@@ -169,9 +169,19 @@ public class MyArray {
     }
   }
 
-  // toArray
+  public void trimToSize() {
+    Integer[] trimmedArr = new Integer[this.size];
+    
+    int trimIndex = 0;
+    for (int i = 0; i < this.array.length; i++) {
+      if (this.array[i] != null) {
+        trimmedArr[trimIndex] = this.array[i];
+        trimIndex++;
+      }
+    }
 
-  // trimToSize
+    this.array = trimmedArr;
+  }
 
   // HELPERS
   public void checkBoundary(int index) {

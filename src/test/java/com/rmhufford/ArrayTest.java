@@ -94,4 +94,19 @@ public class ArrayTest {
     int indexOf = arr.indexOf(6);
     Assert.assertEquals(0, indexOf);
   }
+
+  @Test
+  public void testTrimToSize() {
+    MyArray myArray = new MyArray(10);
+    myArray.append(1);
+    myArray.append(2);
+    myArray.append(3);
+    myArray.delete(1);
+    myArray.trimToSize();
+
+    int expectedSize = 2;
+    int actualSize = myArray.size();
+
+    Assert.assertEquals(expectedSize, actualSize);
+  }
 }
