@@ -108,6 +108,17 @@ public class MyArray {
     return false;
   }
 
+  public int indexOf(int value) {
+    for (int i = 0; i < this.array.length; i++) {
+      if (this.array[i] == value) {
+        return i;
+      } else {
+        continue;
+      }
+    }
+    return -1;
+  }
+
   // HELPERS
   public void checkBoundary(int index) {
     if (index >= this.array.length) {

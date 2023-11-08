@@ -13,10 +13,38 @@ public class ArrayTest {
   }
 
   @Test
-  public void testInsert() {
-    array.insert(2, 4);
+  public void testAppend() {
+    array.append(2);
 
-    Assert.assertEquals(4, array.getElement(2));
+    Assert.assertEquals(array.getElement(0), 2);
+  }
+
+  @Test
+  public void testContains() {
+    boolean contains = array.contains(2);
+
+    Assert.assertEquals(contains, true);
+  }
+
+  @Test
+  public void testDoesNotContain() {
+    boolean contains = array.contains(0);
+
+    Assert.assertEquals(contains, false);
+  }
+
+  @Test
+  public void testIndexOf() {
+    int indexOf = array.indexOf(2);
+
+    Assert.assertEquals(indexOf, 0);
+  }
+
+  @Test
+  public void testNoIndexOf() {
+    int indexOf = array.indexOf(0);
+
+    Assert.assertEquals(indexOf, -1);
   }
 
 }
