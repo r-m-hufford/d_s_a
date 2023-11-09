@@ -1,5 +1,8 @@
 package com.rmhufford;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyArray {
   private Integer[] array;
   private int size;
@@ -171,7 +174,7 @@ public class MyArray {
 
   public void trimToSize() {
     Integer[] trimmedArr = new Integer[this.size];
-    
+
     int trimIndex = 0;
     for (int i = 0; i < this.array.length; i++) {
       if (this.array[i] != null) {
@@ -183,8 +186,87 @@ public class MyArray {
     this.array = trimmedArr;
   }
 
-  // HELPERS
-  public void checkBoundary(int index) {
+  public void sort() {
+    // trim away nulls
+    this.trimToSize();
+    this.quicksort(this.array, 0, this.array.length - 1);
+  }
+
+  private void quicksort(Integer[] arr, int low, int high) {
+    if (low < high) {
+      int pivotIndex = partition(arr, low, high);
+      quicksort(arr, low, pivotIndex);
+      quicksort(arr, pivotIndex + 1, high);
+    }
+  }
+
+  private int partition(Integer[] arr, int low, int high) {
+    int pivotIndex = low + (int) (Math.random() * (high - low + 1));
+    int pivot = arr[pivotIndex];
+    swap(arr, pivotIndex, high);
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+      if (arr[j] <= pivot) {
+        i++;
+        swap(arr, i, j);
+      }
+    }
+
+    swap(arr, i + 1, high);
+
+    return i + 1;
+  }
+
+  private void swap(Integer[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  public void quack() {
+    // trim away nulls
+    this.trimToSize();
+    this.array = this.quacksort(this.array);
+  }
+
+  private Integer[] quacksort(Integer[] arr) {
+    if (arr.length <= 1) {
+      return arr;
+    }
+
+    List<Integer> left = new ArrayList<>();
+    List<Integer> right = new ArrayList<>();
+
+    int pivotIndex = (int) (Math.random() * arr.length);
+    int pivot = arr[pivotIndex];
+
+    for (int i = 0; i < arr.length; i++) {
+      if (i == pivotIndex)
+        continue; // skip the pivot element
+
+      if (arr[i] < pivot) {
+        left.add(arr[i]);
+      } else {
+        right.add(arr[i]);
+      }
+    }
+
+    Integer[] sortedLeft = quacksort(left.toArray(new Integer[0]));
+    Integer[] sortedRight = quacksort(right.toArray(new Integer[0]));
+
+    return combine(sortedLeft, sortedRight, pivot);
+  }
+
+  private Integer[] combine(Integer[] left, Integer[] right, Integer pivot) {
+    Integer[] combined = new Integer[left.length + right.length + 1];
+    System.arraycopy(left, 0, combined, 0, left.length);
+    combined[left.length] = pivot;
+    System.arraycopy(right, 0, combined, left.length + 1, right.length);
+    return combined;
+  }
+
+  private void checkBoundary(int index) {
     if (index >= this.array.length) {
       throw new IndexOutOfBoundsException("you're outta bounds!");
     }

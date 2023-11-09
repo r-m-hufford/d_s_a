@@ -4,15 +4,16 @@ import com.rmhufford.MyArray;
 
 public class App {
   public static void main(String[] args) {
-    MyArray arr = new MyArray(10);
-    arr.append(1);
-    arr.append(2);
+    MyArray arr = new MyArray(6);
+    arr.append(0);
     arr.append(3);
-    arr.setElement(5, 5);
+    arr.append(19);
+    arr.append(2);
+    arr.append(1);
+    arr.append(7);
 
-    System.out.println(arr.print("all"));
+    arr.quack();
 
-    arr.trimToSize();
     System.out.println(arr.print("all"));
 
   }
