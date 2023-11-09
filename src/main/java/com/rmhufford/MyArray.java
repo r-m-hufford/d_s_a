@@ -58,7 +58,7 @@ public class MyArray {
   }
 
   public boolean isEmpty() {
-    return this.size > 0;
+    return this.size == 0;
   }
 
   public void resize() {
@@ -73,7 +73,7 @@ public class MyArray {
   public String print(String mode) {
     StringBuilder list = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
-      if (mode == "notnull" && this.array[i] == null) {
+      if ("notnull".equals(mode) && this.array[i] == null) {
         continue;
       } else {
         list.append(this.array[i]).append(", ");
@@ -267,7 +267,7 @@ public class MyArray {
   }
 
   private void checkBoundary(int index) {
-    if (index >= this.array.length) {
+    if (index >= this.array.length || index < 0) {
       throw new IndexOutOfBoundsException("you're outta bounds!");
     }
   }
