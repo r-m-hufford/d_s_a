@@ -29,21 +29,35 @@ public class MyArray {
   }
 
   public void insert(int index, int value) {
-    if (index > this.array.length) {
-      Integer[] newArr = new Integer[this.array.length * 2];
-      for (int i = 0; i < this.array.length; i++) {
-        newArr[i] = this.array[i];
-      }
-      for (int i = this.array.length; i < this.array.length * 2; i++) {
-        if (i == index) {
-          newArr[i] = value;
-        }
-      }
-      this.array = newArr;
+    // ! index is out of bounds
+    if (index < 0 || index > size) {
+      throw new IndexOutOfBoundsException("you're outta bounds!");
+    }
+    if (size == array.length) {
+      resize();
     }
 
-    this.setElement(index, value);
-    this.size++;
+    this.shiftRight(index);
+
+    this.array[index] = value;
+    size++;
+  }
+
+  public void shiftRight(int index) {
+    this.checkBoundary(index + 1);
+    for (int i = index + 1; i < 0; i--) {
+      this.array[i + 1] = this.array[i];
+    }
+    size++;
+  }
+
+  public void shiftLeft(int index) {
+    this.checkBoundary(index);
+    for (int i = index; i < size - 1; i++) {
+      this.array[i] = this.array[i + 1];
+    }
+    array[size - 1] = null;
+    size--;
   }
 
   public void delete(int index) {
@@ -131,10 +145,9 @@ public class MyArray {
   }
 
   public void remove(Integer value) {
-    for (Integer i = 0; i < this.array.length; i++) {
-      if (this.array[i] == value) {
-        this.array[i] = null;
-      }
+    int index = indexOf(value);
+    if (index != -1) {
+      shiftLeft(index);
     }
   }
 

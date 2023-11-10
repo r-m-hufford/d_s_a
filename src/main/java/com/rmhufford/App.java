@@ -9,10 +9,8 @@ public class App {
     arr.append(3);
     arr.append(19);
     arr.append(2);
-    arr.append(1);
-    arr.append(7);
 
-    arr.quack();
+    arr.insert(2, 4);
 
     System.out.println(arr.print("all"));
 
