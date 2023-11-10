@@ -90,6 +90,7 @@ public class MyArray {
     for (int i = 0; i < this.array.length; i++) {
       this.array[i] = null;
     }
+    size = 0;
   }
 
   public boolean contains(Integer value) {
