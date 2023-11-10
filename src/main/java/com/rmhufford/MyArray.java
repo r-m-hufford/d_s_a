@@ -134,11 +134,9 @@ public class MyArray {
 
   public int lastIndexOf(Integer value) {
     int currentIndex = -1;
-    for (Integer i = 0; i < this.array.length; i++) {
+    for (int i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
         currentIndex = i;
-      } else {
-        continue;
       }
     }
     return currentIndex;
