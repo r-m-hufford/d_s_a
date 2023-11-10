@@ -61,14 +61,6 @@ public class MyArray {
     return this.size == 0;
   }
 
-  public void resize() {
-    Integer[] newArr = new Integer[this.size * 2];
-    for (int i = 0; i < this.size; i++) {
-      newArr[i] = this.array[i];
-    }
-    this.array = newArr;
-  }
-
   // modes: all and notnull
   public String print(String mode) {
     StringBuilder list = new StringBuilder();
@@ -141,26 +133,28 @@ public class MyArray {
   }
 
   // from: exclusive. to: inclusive
-  public Integer[] subArray(int from, int to) {
-    Integer[] subArr = new Integer[to - from];
-    int subArrIndex = 0;
-    for (Integer i = 0; i < this.array.length; i++) {
-      if (i > from && i <= to) {
-        subArr[subArrIndex] = this.array[i];
-        subArrIndex++;
-      }
+  public MyArray subArray(int from, int to) {
+    MyArray subArr = new MyArray(to - from);
+    for (int i = from; i < to; i++) {
+      subArr.append(this.array[i]);
     }
     return subArr;
   }
 
-  // reverse
   public void reverse() {
     for (int i = 0, j = this.array.length - 1; i < this.array.length / 2; i++, j--) {
       int temp = this.array[i];
       this.array[i] = this.array[j];
       this.array[j] = temp;
-      System.out.println("i: " + i + "  |  j: " + j);
     }
+  }
+
+  public void resize() {
+    Integer[] newArr = new Integer[this.size * 2];
+    for (int i = 0; i < this.size; i++) {
+      newArr[i] = this.array[i];
+    }
+    this.array = newArr;
   }
 
   public void trimToSize() {
@@ -175,10 +169,10 @@ public class MyArray {
     }
 
     this.array = trimmedArr;
+    size = size - (size - trimIndex);
   }
 
   public void sort() {
-    // trim away nulls
     this.trimToSize();
     this.quicksort(this.array, 0, this.array.length - 1);
   }

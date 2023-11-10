@@ -7,7 +7,7 @@ public class App {
     MyArray arr = new MyArray(6);
     arr.append(0);
     arr.append(3);
-    arr.append(null);
+    arr.append(19);
     arr.append(2);
     arr.append(2);
 
