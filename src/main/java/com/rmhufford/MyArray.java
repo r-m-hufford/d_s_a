@@ -17,19 +17,11 @@ public class MyArray {
     return this.array[index];
   }
 
-  public void setElement(int index, int value) {
-    checkBoundary(index);
-
-    this.array[index] = value;
-    this.size++;
-  }
-
   public Integer[] getArray() {
     return this.array;
   }
 
   public void insert(int index, int value) {
-    // ! index is out of bounds
     if (index < 0 || index > size) {
       throw new IndexOutOfBoundsException("you're outta bounds!");
     }
@@ -58,12 +50,6 @@ public class MyArray {
     }
     array[size - 1] = null;
     size--;
-  }
-
-  public void delete(int index) {
-    checkBoundary(index);
-    this.array[index] = null;
-    this.size--;
   }
 
   public int size() {
@@ -115,31 +101,29 @@ public class MyArray {
   }
 
   public boolean contains(Integer value) {
-    for (Integer i = 0; i < this.array.length; i++) {
-      if (this.array[i] == value) {
-        return true;
-      }
-    }
-    return false;
+    return findValue(value, false) != -1;
   }
 
   public int indexOf(Integer value) {
-    for (Integer i = 0; i < this.array.length; i++) {
-      if (this.array[i] == value) {
-        return i;
-      }
-    }
-    return -1;
+    return findValue(value, false);
   }
 
   public int lastIndexOf(Integer value) {
-    int currentIndex = -1;
-    for (int i = 0; i < this.array.length; i++) {
+    return findValue(value, true);
+  }
+
+  private int findValue(Integer value, boolean findLast) {
+    int foundIndex = -1;
+    for (Integer i = 0; i < this.array.length; i++) {
       if (this.array[i] == value) {
-        currentIndex = i;
+        foundIndex = i;
+        if (!findLast) {
+          break;
+        }
       }
     }
-    return currentIndex;
+    return foundIndex;
+
   }
 
   public void remove(Integer value) {
@@ -171,10 +155,6 @@ public class MyArray {
 
   // reverse
   public void reverse() {
-    // start at the beginning
-    // i = 0 j = end
-    // got to the middle and flip each index along the way
-    // trim away the excess length?
     for (int i = 0, j = this.array.length - 1; i < this.array.length / 2; i++, j--) {
       int temp = this.array[i];
       this.array[i] = this.array[j];

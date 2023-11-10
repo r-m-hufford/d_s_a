@@ -7,11 +7,12 @@ public class App {
     MyArray arr = new MyArray(6);
     arr.append(0);
     arr.append(3);
-    arr.append(19);
+    arr.append(null);
+    arr.append(2);
     arr.append(2);
 
-    arr.insert(2, 4);
-
+    System.out.println(arr.contains(2));
+    System.out.println(arr.indexOf(2));
     System.out.println(arr.print("all"));
 
   }
