@@ -191,4 +191,38 @@ public class ArrayTest {
     assertEquals(30, subArray.getElement(1));
   }
 
+  @Test
+  public void testSort() {
+    MyArray arr = new MyArray(7);
+    arr.append(1);
+    arr.append(0);
+    arr.append(3);
+    arr.append(19);
+    arr.append(2);
+    arr.append(7);
+    arr.append(8);
+
+    arr.sort();
+
+    assertEquals(0, arr.indexOf(0));
+    assertEquals(6, arr.indexOf(19));
+  }
+
+  @Test
+  public void testSillySort() {
+    MyArray arr = new MyArray(7);
+    arr.append(1);
+    arr.append(0);
+    arr.append(3);
+    arr.append(19);
+    arr.append(2);
+    arr.append(7);
+    arr.append(8);
+
+    arr.quack();
+
+    assertEquals(0, arr.indexOf(0));
+    assertEquals(6, arr.indexOf(19));
+  }
+
 }
