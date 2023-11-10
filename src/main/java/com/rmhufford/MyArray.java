@@ -37,7 +37,7 @@ public class MyArray {
 
   public void shiftRight(int index) {
     this.checkBoundary(index + 1);
-    for (int i = index + 1; i < 0; i--) {
+    for (int i = size - 1; i >= index; i--) {
       this.array[i + 1] = this.array[i];
     }
     size++;
