@@ -173,16 +173,16 @@ public class MyArray {
     size = size - (size - trimIndex);
   }
 
-  public void sort() {
+  public void quicker() {
     this.trimToSize();
-    this.quicksort(this.array, 0, this.array.length - 1);
+    this.quickersort(this.array, 0, this.array.length - 1);
   }
 
-  private void quicksort(Integer[] arr, int low, int high) {
+  private void quickersort(Integer[] arr, int low, int high) {
     if (low < high) {
       int pivotIndex = partition(arr, low, high);
-      quicksort(arr, low, pivotIndex);
-      quicksort(arr, pivotIndex + 1, high);
+      quickersort(arr, low, pivotIndex);
+      quickersort(arr, pivotIndex + 1, high);
     }
   }
 
@@ -210,13 +210,13 @@ public class MyArray {
     arr[j] = temp;
   }
 
-  public void quack() {
+  public void quick() {
     // trim away nulls
     this.trimToSize();
-    this.array = this.quacksort(this.array);
+    this.array = this.quicksort(this.array);
   }
 
-  private Integer[] quacksort(Integer[] arr) {
+  private Integer[] quicksort(Integer[] arr) {
     if (arr.length <= 1) {
       return arr;
     }
@@ -238,8 +238,8 @@ public class MyArray {
       }
     }
 
-    Integer[] sortedLeft = quacksort(left.toArray(new Integer[0]));
-    Integer[] sortedRight = quacksort(right.toArray(new Integer[0]));
+    Integer[] sortedLeft = quicksort(left.toArray(new Integer[0]));
+    Integer[] sortedRight = quicksort(right.toArray(new Integer[0]));
 
     return combine(sortedLeft, sortedRight, pivot);
   }

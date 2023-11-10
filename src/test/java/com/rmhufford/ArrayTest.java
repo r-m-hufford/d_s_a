@@ -192,7 +192,7 @@ public class ArrayTest {
   }
 
   @Test
-  public void testSort() {
+  public void testQuicker() {
     MyArray arr = new MyArray(7);
     arr.append(1);
     arr.append(0);
@@ -202,7 +202,7 @@ public class ArrayTest {
     arr.append(7);
     arr.append(8);
 
-    arr.sort();
+    arr.quicker();
 
     assertEquals(0, arr.indexOf(0));
     assertEquals(6, arr.indexOf(19));
@@ -219,7 +219,7 @@ public class ArrayTest {
     arr.append(7);
     arr.append(8);
 
-    arr.quack();
+    arr.quick();
 
     assertEquals(0, arr.indexOf(0));
     assertEquals(6, arr.indexOf(19));
